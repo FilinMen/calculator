@@ -1,59 +1,84 @@
 #сложение
-def add(a,b):
-    return a + b
+def add(a):
+    for i in range(1, len(list_num)):
+        list_num[0] += list_num[i]
+    return  list_num[0]
 #умножение
-def mul(a,b):
-    return a * b
+def mul(a):
+    for i in range(1, len(list_num)):
+        list_num[0] *= list_num[i]
+    return list_num[0]
 #разность 
-def min(a,b):
-    return a - b
+def sub(a):
+    for i in range(1, len(list_num)):
+        list_num[0] -= list_num[i]
+    return list_num[0] 
 #деление
-def div(a,b):
-    return a / b
+def div(a):
+    for i in range(1, len(list_num)):
+        list_num[0] /= list_num[i]
+    return list_num[0]
 
 print('ВВЕДИТЕ ВАШ ПРИМЕР:')
 example = input()
+list_num = []
+#СТЕПЕНЬ
+def mul(a):
+    for i in range(1, len(list_num)):
+        list_num[0] **= list_num[i]
+    return list_num[0]
 
+#СЛОЖЕНИЕ
 if '+' in example:
-    print('addition')#сложение
+    print('addition')
     example.replace(' ', '') #УДАЛЕНИЕ ПРОБЕЛОВ
     spl_ex = example.split('+')# РАЗДЕЛЕНИЕ ПО ЗНАКУ
     list_ex = spl_ex
-    first_num = int(list_ex[0])
-    another_num = int(list_ex[1])
-    v = '+'
+    len(list_ex)
+    for i in range(len(list_ex)):
+        list_num.append(float(list_ex[i]))
+    result = add(list_num)
+#УМНОЖИТЬ
 elif '*' in example:
-    print('multiplication')#умножение
+    print('multiply')
     example.replace(' ', '')
     spl_ex = example.split('*')
     list_ex = spl_ex
-    first_num = int(list_ex[0])
-    another_num = int(list_ex[1])
-    v = '*'
+    len(list_ex)
+    for i in range(len(list_ex)):
+        list_num.append(float(list_ex[i]))
+    result = mul(list_num)
+#РАЗНОСТЬ
 elif '-' in example:
-    print('minus')#минус
+    print('subtract')
     spl_ex = example.split('-')
     example.replace(' ', '')
     list_ex = spl_ex
-    first_num = int(list_ex[0])
-    another_num = int(list_ex[1])
-    v = '-'
+    len(list_ex)
+    for i in range(len(list_ex)):
+        list_num.append(float(list_ex[i]))
+    print(list_num[1])
+    result = sub(list_num)
+#ДЕЛИТЬ
 elif '/' in example:
-    print('division')#деление
+    print('subtract')
     spl_ex = example.split('/')
     example.replace(' ', '')
     list_ex = spl_ex
-    first_num = int(list_ex[0])
-    another_num = int(list_ex[1])
-    v = '/'
+    len(list_ex)
+    for i in range(len(list_ex)):
+        list_num.append(float(list_ex[i]))
+    result = div(list_num)
+#СТЕПЕНЬ
 
-if v == '+':
-    result = add(first_num,another_num)
-elif  v == '*':      
-    result = mul(first_num,another_num)  
-elif v == '-' :   
-    result = min(first_num,another_num)
-elif v == '/':
-    result = div(first_num,another_num)
+elif '**' or '^' in example:
+    print('degree')
+    spl_ex = example.split('**')
+    spl_ex = example.split('^')
+    example.replace(' ', '')
+    list_ex = spl_ex
+    len(list_ex)
+    for i in range(len(list_ex)):
+        list_num.append(float(list_ex[i]))
+    result = div(list_num)
 print(result)
-
